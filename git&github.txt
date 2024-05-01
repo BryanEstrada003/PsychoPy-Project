@@ -1,0 +1,54 @@
+https://git-scm.com/downloads/
+git config –-global user.name “su-nombre-de-usuario-de-github”
+git config –-global user.email “su-correo-de-github”
+
+---------------------------GIT/GITHUB---------------------------
+
+Pasos para configurar tu proyecto con tu repo---
+1. git init 
+2. git remote add origin <link repo>
+3. git pull origin main
+4. git branch (Ver las ramas en el repositorio)
+5. git checkout main (Cambiar de la rama master a main)
+6.git status
+7. git add * (Agregar los archivos del repositorio local
+al remoto)
+8. git commit -m "Commit inicial"
+9. git push origin main
+
+---Pasos para clonar el repositorio remoto---
+1. git clone <link del repo>
+
+---Comandos para trabajar con archivos en nuestro repo---
+- git pull (Jalar todos los cambios del repo remoto al local
+, esto puede generar conflictos)
+
+-->Respetar el orden de los siguientes pasos
+1.- git add * (Agregar los archivos alterados o nuevos
+al area de Stage)
+2.- git add NombreArchivo (Agregar solo el archivo especificado
+al area de Stage)
+3.- git commit -m "Mensaje de commit" (Hacer commit de los cambios)'
+4.- git push (Enviar todos los cambios al repositorio remoto)
+
+- git status (conocer el estado actual del repositorio)
+-git rm NombreArchivo (Eliminar ese archivo)
+
+--Pasos para manejar conflictos---
+1. git status (Siempre usar este comando, por lo general la consola
+le indicará lo que se debe realizar o donde se produjo el conflicto)
+2. git add * (Guardar los cambios en el repo local)
+3. git pull (Jalar los cambios del repo remoto)
+4. Decidir los cambios que permaneceran en su archivo
+5. git add *
+6. git commit -m "Mensaje"
+7. git push
+
+--Pasos para trabajar en ramas a parte--
+Para crear una rama se usa el comando:
+-git branch <NombreRama>
+Para eliminar una rama se usa el comando:
+-git branch -d <nombreRama>
+Para fusionar los cambios entre la rama main y otra rama secundaria es necesario estar en la rama donde
+queremos que los cambios sean agregados. Luego usamos el siguiente comando:
+-git merge nombreRamaSecundaria
