@@ -3,6 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex; /* Añade flexbox */
+  flex-direction: column; /* Alinea los elementos hijos en una columna */
+  align-items: flex-start; /* Alinea los elementos hijos al inicio del eje horizontal */
 }
 
 .logo {
@@ -39,4 +42,23 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.container {
+  display: flex;
+  flex-direction: center;
+  height: 100vh;
+}
+
+#div1 {
+  flex: 30; /* Esto hará que div1 sea dos veces más ancho que div2 */
+  margin-right: 70px;
+}
+
+#div2 {
+  flex: 1000;
+}
+
+.container > div:nth-child(2) {
+  background-color: #333;
 }
