@@ -2,7 +2,23 @@ import Chat from './components/Chat.jsx'
 import React from 'react';
 import './App.css';
 
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+
+
 function App() {
+  //const apiKey
+
+  //const genAI
+  const apiKey = import.meta.env.VITE_API_KEY;
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+
+
+  const model = genAI.getGenerativeModel({model: "gemini-1.0-pro"})
+
+  console.log("apiKey", apiKey)
+
   return (
     <div className="container">
       <div id="div1">
