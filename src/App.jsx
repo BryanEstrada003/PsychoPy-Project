@@ -1,12 +1,14 @@
 import Chat from './components/Chat.jsx'
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-
+import nightModeIcon from './assets/night-mode.png';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 
 
 function App() {
+  // light dark mode
+  const [darkMode, setDarkMode] = useState(false);
   //const apiKey
 
   //const genAI
@@ -20,12 +22,15 @@ function App() {
   console.log("apiKey", apiKey)
 
   return (
-    <div className="container">
-      <div id="div1">
+    <div className={`container ${darkMode ? 'dark' : ''}`}>
+      <div id="input">
         <h1>PsychoPy</h1>
         <Chat />
+        <button onClick={() => setDarkMode(!darkMode)}>
+          <img src={nightModeIcon} alt="Night mode" />
+        </button>
       </div>
-      <div id="div2">
+      <div id="current-chat">
         <p>esto sera el chat</p>
       </div>
     </div>

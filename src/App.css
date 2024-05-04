@@ -1,11 +1,9 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  display: flex; /* Añade flexbox */
-  flex-direction: column; /* Alinea los elementos hijos en una columna */
-  align-items: flex-start; /* Alinea los elementos hijos al inicio del eje horizontal */
+  margin: 0;
+  text-align: row; /* Esto centra el texto en el contenedor raíz */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .logo {
@@ -44,21 +42,40 @@
   color: #888;
 }
 
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: row; /* Esto hará que los elementos hijos se alineen en una fila */
+  min-height: 100vh; /* Esto hará que el cuerpo ocupe todo el alto de la ventana del navegador */
+  height: 100vh; /* Esto hará que el cuerpo y el html ocupen todo el alto de la ventana del navegador */
+  width: 100vw; /* Esto hará que el cuerpo y el html ocupen todo el ancho de la ventana del navegador */
+}
+
 .container {
   display: flex;
-  flex-direction: center;
-  height: 100vh;
+  flex-direction: row; /* Esto hará que los elementos hijos de .container se alineen en una fila */
+  height: 100vh; /* Esto hará que .container ocupe todo el alto de la ventana del navegador */
+  width: 100vw; /* Esto hará que .container ocupe todo el ancho de la ventana del navegador */
 }
 
-#div1 {
-  flex: 30; /* Esto hará que div1 sea dos veces más ancho que div2 */
-  margin-right: 70px;
-}
-
-#div2 {
-  flex: 1000;
-}
-
-.container > div:nth-child(2) {
+.container.dark {
   background-color: #333;
+  color: #fff;
 }
+
+button img {
+  width: 20px; /* Cambia esto al ancho que desees */
+  height: 20px; /* Esto mantendrá la relación de aspecto de la imagen */
+}
+/*
+.container > #input {
+  flex: 1; 
+  overflow: auto; 
+}
+
+.container > #current-chat {
+  flex: 2; 
+  overflow: auto;
+}
+
+*/
