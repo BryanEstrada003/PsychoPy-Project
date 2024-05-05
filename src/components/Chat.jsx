@@ -5,74 +5,92 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 
 const Chat = () => {
-    const [input, setInput] = useState('');
-    const [input2, setInput2] = useState('');
-    const [input3, setInput3] = useState('');
-    const [input4, setInput4] = useState('');
-    const [output, setOutput] = useState('');
-  
+  const [nameProject, SI_nameProject] = useState('');
+  const [description, SI_description] = useState('');
+  const [objective, SI_objective] = useState('');
+  const [requirements, SI_requirements] = useState('');
+  const [profile, SI_profile] = useState('');
+  const [availableHours, SI_availableHours] = useState('');
+  const [timeZone, SI_timeZone] = useState('');
+  const [output, setOutput] = useState('');
 
-    const handleInputChange = (e) => {
-      setInput(e.target.value);
-    };
 
-    const handleInputChange2 = (e) => {
-        setInput2(e.target.value);
-    };
+  const HIC_nameProject = (e) => {
+    SI_nameProject(e.target.value);
+  };
 
-    const handleInputChange3 = (e) => {
-        setInput3(e.target.value);
-    };
+  const HIC_description = (e) => {
+    SI_description(e.target.value);
+  };
 
-    const handleInputChange4 = (e) => {
-        setInput4(e.target.value);
-    };
+  const HIC_objective = (e) => {
+    SI_objective(e.target.value);
+  };
 
-    const handleSubmit = async () => {
-      // Aquí invocarás la API de generación de texto
-    };
-  
-    return (
-      <div>
-        <div className="input-container">
-          <p>Nombre del proyecto</p>
-          <input type="text" value={input} placeholder="Enter your prompt here..." onChange={handleInputChange} />
-        </div>
+  const HIC_requirements = (e) => {
+    SI_requirements(e.target.value);
+  };
 
-        <div className="input-container">
+  const HIC_profile = (e) => {
+    SI_profile(e.target.value);
+  };
+
+  const HIC_availableHours = (e) => {
+    SI_availableHours(e.target.value);
+  };
+
+  const HIC_timeZone = (e) => {
+    SI_timeZone(e.target.value);
+  };
+
+  const handleSubmit = async () => {
+    // Aquí invocarás la API de generación de texto
+  };
+
+  return (
+    <div>
+      <div className="input-container">
+        <p>Nombre del proyecto</p>
+        <input type="text" className='input-short' value={nameProject} placeholder="Enter your prompt here..." onChange={HIC_nameProject} />
+      </div>
+
+      <div className="input-container">
         <p>Descripción</p>
-          <input type="text" value={input2} placeholder="Enter your prompt here..." onChange={handleInputChange2} />
-        </div>
+        <textarea type="text" className= "input-paragraph" value={description} placeholder="Enter your prompt here..." onChange={HIC_description} />
+      </div>
 
-        <div className="input-container">
-          <p>Objetivo</p>
-          <input type="text" value={input3} placeholder="Enter your prompt here..." onChange={handleInputChange3} />
-        </div>
+      <div className="input-container">
+        <p>Objetivo</p>
+        <textarea type="text" className= "input-paragraph" value={objective} placeholder="Enter your prompt here..." onChange={HIC_objective} />
+      </div>
 
-        <div className="input-container">
-          <p>Requisitos/Conocimientos</p>
-          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
-        </div>
+      <div className="input-container">
+        <p>Requisitos/Conocimientos</p>
+        <textarea type="text" className= "input-paragraph" value={requirements} placeholder="Enter your prompt here..." onChange={HIC_requirements} />
+      </div>
 
-        <div className="input-container">
-          <p>Perfil requerido</p>
-          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
-        </div>
+      <div className="input-container">
+        <p>Perfil requerido</p>
+        <textarea type="text" className= "input-paragraph" value={profile} placeholder="Enter your prompt here..." onChange={HIC_profile} />
+      </div>
 
-        <div className="input-container">
-          <p>Horario disponible</p>
-          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
-        </div>
+      <div className="input-container">
+        <p>Horario disponible</p>
+        <input type="text" className='input-short' value={availableHours} placeholder="Enter your prompt here..." onChange={HIC_availableHours} />
+      </div>
 
-        <div className="input-container">
-          <p>Zona Horaria</p>
-          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
-        </div>
+      <div className="input-container">
+        <p>Zona Horaria</p>
+        <input type="text" className='input-short' value={timeZone} placeholder="Enter your prompt here..." onChange={HIC_timeZone} />
+      </div>
 
+      <center>
         <button className="button" onClick={handleSubmit}>Generar</button>
         {output && <p>{output}</p>}
-      </div>
-    );
+      </center>
+
+    </div>
+  );
 };
 
 export default Chat;

@@ -64,3 +64,59 @@ button img {
   width: 20px; /* Cambia esto al ancho que desees */
   height: 20px; /* Esto mantendrá la relación de aspecto de la imagen */
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar {
+  overflow: hidden;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.button-light {
+  background-color: #888; /* Un color oscuro para el fondo en modo claro */
+  color: #fff; /* Un color claro para el texto en modo claro */
+}
+
+.button-dark {
+  background-color: #fff; /* Un color claro para el fondo en modo oscuro */
+  color: #000; /* Un color oscuro para el texto en modo oscuro */
+}
