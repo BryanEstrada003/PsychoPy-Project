@@ -15,9 +15,9 @@
 }
 
 .input-short {
-    width: 200px;
+    width: 350px;
     /* Un ancho más pequeño para texto corto */
-    height: 30px;
+    height: 35px;
     /* Una altura más pequeña para texto corto */
 }
 

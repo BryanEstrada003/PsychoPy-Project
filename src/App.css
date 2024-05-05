@@ -120,3 +120,22 @@ button img {
   background-color: #fff; /* Un color claro para el fondo en modo oscuro */
   color: #000; /* Un color oscuro para el texto en modo oscuro */
 }
+
+.dark-mode {
+  background-color: #727272;
+  color: #fff;
+}
+
+/* Para cambiar el color del placeholder en todos los navegadores */
+.dark-mode::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #e6e6e6;
+}
+.dark-mode::-moz-placeholder { /* Firefox 19+ */
+  color: #e6e6e6;
+}
+.dark-mode:-ms-input-placeholder { /* IE 10+ */
+  color: #e6e6e6;
+}
+.dark-mode:-moz-placeholder { /* Firefox 18- */
+  color: #e6e6e6;
+}

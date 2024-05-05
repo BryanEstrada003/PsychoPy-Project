@@ -106,7 +106,7 @@ input, textarea {
   border: 1px solid #ccc;
   font-family: Arial, sans-serif;
   font-size: 16px;
-  color: #333;
+  color: #727272;
   margin-bottom: 20px; /* Añade un margen en la parte inferior de cada contenedor de entrada */
   border-radius: 5px; /* Esto hará que los bordes del input sean redondos */
 }

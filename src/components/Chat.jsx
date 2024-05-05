@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import './Chat.css';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-
-
-const Chat = () => {
+function Chat({ darkMode }) {
   const [nameProject, SI_nameProject] = useState('');
   const [description, SI_description] = useState('');
   const [objective, SI_objective] = useState('');
@@ -13,7 +11,6 @@ const Chat = () => {
   const [availableHours, SI_availableHours] = useState('');
   const [timeZone, SI_timeZone] = useState('');
   const [output, setOutput] = useState('');
-
 
   const HIC_nameProject = (e) => {
     SI_nameProject(e.target.value);
@@ -51,37 +48,37 @@ const Chat = () => {
     <div>
       <div className="input-container">
         <p>Nombre del proyecto</p>
-        <input type="text" className='input-short' value={nameProject} placeholder="Enter your prompt here..." onChange={HIC_nameProject} />
+        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={nameProject} placeholder="Enter your prompt here..." onChange={HIC_nameProject} />
       </div>
 
       <div className="input-container">
         <p>Descripción</p>
-        <textarea type="text" className= "input-paragraph" value={description} placeholder="Enter your prompt here..." onChange={HIC_description} />
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={description} placeholder="Enter your prompt here..." onChange={HIC_description} />
       </div>
 
       <div className="input-container">
         <p>Objetivo</p>
-        <textarea type="text" className= "input-paragraph" value={objective} placeholder="Enter your prompt here..." onChange={HIC_objective} />
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={objective} placeholder="Enter your prompt here..." onChange={HIC_objective} />
       </div>
 
       <div className="input-container">
         <p>Requisitos/Conocimientos</p>
-        <textarea type="text" className= "input-paragraph" value={requirements} placeholder="Enter your prompt here..." onChange={HIC_requirements} />
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={requirements} placeholder="Enter your prompt here..." onChange={HIC_requirements} />
       </div>
 
       <div className="input-container">
         <p>Perfil requerido</p>
-        <textarea type="text" className= "input-paragraph" value={profile} placeholder="Enter your prompt here..." onChange={HIC_profile} />
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={profile} placeholder="Enter your prompt here..." onChange={HIC_profile} />
       </div>
 
       <div className="input-container">
         <p>Horario disponible</p>
-        <input type="text" className='input-short' value={availableHours} placeholder="Enter your prompt here..." onChange={HIC_availableHours} />
+        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={availableHours} placeholder="Enter your prompt here..." onChange={HIC_availableHours} />
       </div>
 
       <div className="input-container">
         <p>Zona Horaria</p>
-        <input type="text" className='input-short' value={timeZone} placeholder="Enter your prompt here..." onChange={HIC_timeZone} />
+        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={timeZone} placeholder="Enter your prompt here..." onChange={HIC_timeZone} />
       </div>
 
       <center>
