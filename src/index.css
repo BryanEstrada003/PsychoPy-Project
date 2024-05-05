@@ -82,7 +82,7 @@ button:focus-visible {
 }
 
 #current-chat {
-  max-height: 500px;
+  max-height: 1000px;
   flex: 3; /* Esto hará que #current-chat tome 2/3 del espacio disponible */
   overflow-y: auto; /* Esto permitirá el desplazamiento si el chat actual es muy largo */
   background-color: #f8f7f7;
