@@ -22,7 +22,9 @@ function App() {
   return (
     <div className={`container ${darkMode ? 'dark' : ''}`}>
       <div id="input" className={`${darkMode ? 'dark' : ''}`}>
-        <h1>PsychoPy</h1>
+        <center>
+          <h1>PsychoPy</h1>
+        </center>
         <Chat />
         <button onClick={() => setDarkMode(!darkMode)}>
           <img src={nightModeIcon} alt="Night mode" />
