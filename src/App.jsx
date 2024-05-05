@@ -8,8 +8,8 @@ import './index.css';
 function App() {
   // light dark mode
   const [darkMode, setDarkMode] = useState(false);
+  
   //const apiKey
-
   //const genAI
   const apiKey = import.meta.env.VITE_API_KEY;
 
