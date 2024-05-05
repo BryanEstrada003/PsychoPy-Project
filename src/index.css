@@ -76,12 +76,24 @@ button:focus-visible {
 }
 
 #input {
-  flex: 1; /* Esto hará que #chat-list tome 1/3 del espacio disponible */
+  flex: 1.25; /* Esto hará que #chat-list tome 1/3 del espacio disponible */
   overflow-y: auto; /* Esto permitirá el desplazamiento si la lista de chats es muy larga */
+  background-color: #ebebeb;
 }
 
 #current-chat {
-  flex: 2; /* Esto hará que #current-chat tome 2/3 del espacio disponible */
+  max-height: 500px;
+  flex: 3; /* Esto hará que #current-chat tome 2/3 del espacio disponible */
   overflow-y: auto; /* Esto permitirá el desplazamiento si el chat actual es muy largo */
+  background-color: #f8f7f7;
 }
 
+#input.dark {
+  background-color: #383838;
+  color: #fff;
+}
+
+#current-chat.dark {
+  background-color: #727272;
+  color: #fff;
+}
