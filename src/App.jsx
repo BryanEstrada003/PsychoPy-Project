@@ -17,7 +17,7 @@ function App() {
 
   const model = genAI.getGenerativeModel({model: "gemini-1.0-pro"})
 
-  console.log("apiKey", apiKey)
+  //console.log("apiKey", apiKey) //imprime el tezto del apikey en la consola // solo es para verificar
 
   return (
     <div className={`container ${darkMode ? 'dark' : ''}`}>
