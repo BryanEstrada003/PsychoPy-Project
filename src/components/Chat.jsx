@@ -31,19 +31,38 @@ const Chat = () => {
     return (
       <div>
         <div className="input-container">
-            <input type="text" value={input} placeholder="Enter your prompt here..." onChange={handleInputChange} />
+          <p>Nombre del proyecto</p>
+          <input type="text" value={input} placeholder="Enter your prompt here..." onChange={handleInputChange} />
         </div>
 
         <div className="input-container">
-            <input type="text" value={input2} placeholder="Enter your prompt here..." onChange={handleInputChange2} />
+        <p>Descripción</p>
+          <input type="text" value={input2} placeholder="Enter your prompt here..." onChange={handleInputChange2} />
         </div>
 
         <div className="input-container">
-            <input type="text" value={input3} placeholder="Enter your prompt here..." onChange={handleInputChange3} />
+          <p>Objetivo</p>
+          <input type="text" value={input3} placeholder="Enter your prompt here..." onChange={handleInputChange3} />
         </div>
 
         <div className="input-container">
-            <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
+          <p>Requisitos/Conocimientos</p>
+          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
+        </div>
+
+        <div className="input-container">
+          <p>Perfil requerido</p>
+          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
+        </div>
+
+        <div className="input-container">
+          <p>Horario disponible</p>
+          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
+        </div>
+
+        <div className="input-container">
+          <p>Zona Horaria</p>
+          <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
         </div>
 
         <button className="button" onClick={handleSubmit}>Generar</button>

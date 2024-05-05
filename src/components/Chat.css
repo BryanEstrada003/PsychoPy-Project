@@ -1,5 +1,6 @@
 .input-container {
-    margin-bottom: 20px; /* Añade un margen en la parte inferior de cada contenedor de entrada */
+    margin-bottom: 5px; /* Añade un margen en la parte inferior de cada contenedor de entrada */
+    display: flex; /* Esto hará que los elementos hijos de .input-container se alineen en una fila */
 }
   
 .button {

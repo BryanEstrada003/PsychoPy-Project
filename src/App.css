@@ -12,9 +12,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -57,31 +59,8 @@ body {
   height: 100vh; /* Esto hará que .container ocupe todo el alto de la ventana del navegador */
   width: 100vw; /* Esto hará que .container ocupe todo el ancho de la ventana del navegador */
 }
-/*
-#input.container.dark {
-  background-color: #333;
-  color: #fff;
-}
-
-#current-chat.container.dark {
-  background-color: #333;
-  color: #fff;
-}
-*/
 
 button img {
   width: 20px; /* Cambia esto al ancho que desees */
   height: 20px; /* Esto mantendrá la relación de aspecto de la imagen */
 }
-/*
-.container > #input {
-  flex: 1; 
-  overflow: auto; 
-}
-
-.container > #current-chat {
-  flex: 2; 
-  overflow: auto;
-}
-
-*/
