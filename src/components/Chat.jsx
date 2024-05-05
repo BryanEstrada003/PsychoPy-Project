@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './Chat.css';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+
 
 const Chat = () => {
     const [input, setInput] = useState('');
@@ -8,6 +11,7 @@ const Chat = () => {
     const [input4, setInput4] = useState('');
     const [output, setOutput] = useState('');
   
+
     const handleInputChange = (e) => {
       setInput(e.target.value);
     };
