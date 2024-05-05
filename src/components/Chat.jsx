@@ -36,30 +36,24 @@ const Chat = () => {
       <div>
         <div className="input-container">
             <input type="text" value={input} placeholder="Enter your prompt here..." onChange={handleInputChange} />
-            <button className="button" onClick={handleSubmit}>Generar</button>
-            {output && <p>{output}</p>}
         </div>
-
 
         <div className="input-container">
             <input type="text" value={input2} placeholder="Enter your prompt here..." onChange={handleInputChange2} />
-            <button className="button" onClick={handleSubmit}>Generar</button>
-            {output && <p>{output}</p>}
         </div>
 
         <div className="input-container">
             <input type="text" value={input3} placeholder="Enter your prompt here..." onChange={handleInputChange3} />
-            <button className="button" onClick={handleSubmit}>Generar</button>
-            {output && <p>{output}</p>}
         </div>
 
         <div className="input-container">
             <input type="text" value={input4} placeholder="Enter your prompt here..." onChange={handleInputChange4} />
-            <button className="button" onClick={handleSubmit}>Generar</button>
-            {output && <p>{output}</p>}
         </div>
+
+        <button className="button" onClick={handleSubmit}>Generar</button>
+        {output && <p>{output}</p>}
       </div>
     );
-  };
-  
-  export default Chat;
+};
+
+export default Chat;

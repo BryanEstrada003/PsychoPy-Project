@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import nightModeIcon from './assets/night-mode.png';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-
-
+import './index.css';
 
 function App() {
   // light dark mode
@@ -16,21 +15,22 @@ function App() {
 
   const genAI = new GoogleGenerativeAI(apiKey);
 
-
   const model = genAI.getGenerativeModel({model: "gemini-1.0-pro"})
 
   console.log("apiKey", apiKey)
 
   return (
     <div className={`container ${darkMode ? 'dark' : ''}`}>
-      <div id="input">
-        <h1>PsychoPy</h1>
+      <div id="input" className={`${darkMode ? 'dark' : ''}`}>
+        <center>
+          <h1>PsychoPy</h1>
+        </center>
         <Chat />
         <button onClick={() => setDarkMode(!darkMode)}>
           <img src={nightModeIcon} alt="Night mode" />
         </button>
       </div>
-      <div id="current-chat">
+      <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
         <p>esto sera el chat</p>
       </div>
     </div>
