@@ -83,6 +83,7 @@ function Chat({ darkMode }) {
 
   const handleSubmit = async () => {
     // Aquí invocarás la API de generación de texto
+    //debe retornar un html que es el resultado de la consulta
   };
 
   return (

@@ -1,7 +1,6 @@
 import Chat from './components/Chat.jsx'
 import React, { useState } from 'react';
 import './App.css';
-import './index.css';
 import iconPage from './assets/icon-page.png';
 import iconPageDark from './assets/icon-page - dark.png'; // Asegúrate de reemplazar './assets/icon-page-dark.png' con la ruta a tu archivo de imagen de icono oscuro
 import nightModeIcon from './assets/night-mode.png';
@@ -33,7 +32,7 @@ function App() {
       <div id="input" className={`${darkMode ? 'dark' : ''}`}>
         <div className="header">
         <img src={darkMode ? iconPageDark : iconPage} alt="PsychoPy icon" style={{width: '50px', height: '50px' }} />
-          <h1 className={darkMode ? 'dark' : ''}>PsychoPy</h1>
+          <h1>PsychoPy</h1>
           <div className="navbar">
             <div className="dropdown">
               <button className="dropbtn">
@@ -50,7 +49,12 @@ function App() {
         <Chat darkMode={darkMode} />
       </div>
       <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
-        <textarea className="output-textbox" rows="4" cols="50" style={{width: '100%', height: '100%', padding: '1000px'}} value={outputText} readOnly />
+        <div className="file-upload">
+          <img src={uploadImg} alt="upload" />
+              <h3>Click box to upload</h3>
+              <p>Maximun file size 10mb</p>
+              <input type="file" />
+        </div>
       </div>
     </div>
   );
