@@ -39,8 +39,13 @@ body, html {
 }
 
 h1 {
+  color: #2c4f7e;
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+p{
+  color: #052a5a;
 }
 
 button {
@@ -111,3 +116,4 @@ input, textarea{
   border-radius: 5px; /* Esto hará que los bordes del input sean redondos */
   background-color: #fdfcfc;
 }
+
