@@ -139,3 +139,7 @@ button img {
 .dark-mode:-moz-placeholder { /* Firefox 18- */
   color: #e6e6e6;
 }
+
+.dark h1, .dark p {
+  color: #fff;
+}
