@@ -58,9 +58,11 @@ function App() {
         </div>
         <Chat darkMode={darkMode} />
       </div>
-      <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
+      <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}> 
         <div className="file-upload">
-          <img src={iconUploadFile} alt="upload" />
+          <button className="transparent-button">
+            <img className="large-icon" src={iconUploadFile} alt="upload" />
+          </button>
           <h3>Click box to upload</h3>
           <p>Maximun file size 10mb</p>
           <input type="file" />
