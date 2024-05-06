@@ -1,5 +1,5 @@
 .input-container {
-    margin: 5px;
+    margin: 10px;
     flex-direction: column;
     align-items: center;
 }
@@ -19,6 +19,10 @@
     /* Un ancho más pequeño para texto corto */
     height: 35px;
     /* Una altura más pequeña para texto corto */
+}
+
+.select-container {
+    margin-bottom: 20px;
 }
 
 .input-paragraph {

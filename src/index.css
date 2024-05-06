@@ -102,11 +102,12 @@ button:focus-visible {
   color: #fdfcfc;
 }
 
-input, textarea {
+input, textarea{
   border: 1px solid #ccc;
   font-family: Arial, sans-serif;
   font-size: 16px;
-  color: #727272;
+  color: #4e4e4e;
   margin-bottom: 20px; /* Añade un margen en la parte inferior de cada contenedor de entrada */
   border-radius: 5px; /* Esto hará que los bordes del input sean redondos */
+  background-color: #fdfcfc;
 }

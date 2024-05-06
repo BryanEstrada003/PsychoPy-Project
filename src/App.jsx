@@ -43,7 +43,6 @@ function App() {
           </div>
         </div>
         <Chat darkMode={darkMode} />
-
       </div>
       <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
         <p>esto sera el chat</p>
