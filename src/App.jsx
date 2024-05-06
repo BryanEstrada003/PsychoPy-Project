@@ -21,6 +21,10 @@ function App() {
 
   const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" })
 
+  //
+  const [outputText, setOutputText] = useState('');
+
+
   //console.log("apiKey", apiKey) //imprime el tezto del apikey en la consola // solo es para verificar
 
   return (
@@ -45,7 +49,7 @@ function App() {
         <Chat darkMode={darkMode} />
       </div>
       <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
-        <p>esto sera el chat</p>
+        <textarea className="output-textbox" rows="4" cols="50" style={{width: '100%', height: '100%', padding: '1000px'}} value={outputText} readOnly />
       </div>
     </div>
   );
