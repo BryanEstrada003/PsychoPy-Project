@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import './App.css';
 import iconPage from './assets/icon-page.png';
 import iconPageDark from './assets/icon-page - dark.png'; // Asegúrate de reemplazar './assets/icon-page-dark.png' con la ruta a tu archivo de imagen de icono oscuro
+import iconUploadFile from './assets/file.png';
 import nightModeIcon from './assets/night-mode.png';
 import menuLight from './assets/menu-icon-light.png';
 import menuDark from './assets/menu-icon-dark.png';
@@ -12,6 +13,7 @@ import './index.css';
 function App() {
   // light dark mode
   const [darkMode, setDarkMode] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   //const apiKey
   //const genAI
@@ -31,18 +33,26 @@ function App() {
     <div className={`container ${darkMode ? 'dark' : ''}`}>
       <div id="input" className={`${darkMode ? 'dark' : ''}`}>
         <div className="header">
-        <img src={darkMode ? iconPageDark : iconPage} alt="PsychoPy icon" style={{width: '50px', height: '50px' }} />
-          <h1>PsychoPy</h1>
+          <img src={darkMode ? iconPageDark : iconPage} alt="PsychoPy icon" style={{ width: '50px', height: '50px' }} />
+          <h1 className={darkMode ? 'dark' : ''}>PsychoPy</h1>
           <div className="navbar">
             <div className="dropdown">
-              <button className="dropbtn">
+              <button className="dropbtn" onClick={() => setDropdownOpen(!dropdownOpen)}>
                 <img src={darkMode ? menuDark : menuLight} />
               </button>
-              <div className="dropdown-content">
-                <button className={`button-${darkMode ? 'dark' : 'light'}`} onClick={() => setDarkMode(!darkMode)}>
-                  <img src={nightModeIcon} alt="Night mode" /> Night mode
-                </button>
-              </div>
+              {dropdownOpen && (
+                <div className="dropdown-content">
+                  <button
+                    className={`button-${darkMode ? 'dark' : 'light'}`}
+                    onClick={() => {
+                      setDarkMode(!darkMode);
+                      setDropdownOpen(false);
+                    }}
+                  >
+                    <img src={nightModeIcon} alt="Night mode" /> Night mode
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -50,10 +60,10 @@ function App() {
       </div>
       <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
         <div className="file-upload">
-          <img src={uploadImg} alt="upload" />
-              <h3>Click box to upload</h3>
-              <p>Maximun file size 10mb</p>
-              <input type="file" />
+          <img src={iconUploadFile} alt="upload" />
+          <h3>Click box to upload</h3>
+          <p>Maximun file size 10mb</p>
+          <input type="file" />
         </div>
       </div>
     </div>
