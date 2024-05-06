@@ -58,14 +58,19 @@ function App() {
         </div>
         <Chat darkMode={darkMode} />
       </div>
-      <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}> 
-        <div className="file-upload">
-          <button className="transparent-button">
-            <img className="large-icon" src={iconUploadFile} alt="upload" />
-          </button>
-          <h3>Click box to upload</h3>
-          <p>Maximun file size 10mb</p>
-          <input type="file" />
+      <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
+        <div id='download-history'>
+          ALGOOOO
+        </div>
+        <div id='chat-messages'>
+          <div className="file-upload">
+            <button className="transparent-button">
+              <img className="large-icon" src={iconUploadFile} alt="upload" />
+            </button>
+            <h3>Click box to upload</h3>
+            <p>Maximun file size 10mb</p>
+            <input type="file" />
+          </div>
         </div>
       </div>
     </div>

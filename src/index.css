@@ -103,6 +103,16 @@ button:focus-visible {
   background-color: #fdfcfc;
 }
 
+#download-history {
+  flex: 1; /* Esto hará que #download-history tome 1/4 del espacio disponible */
+  margin-bottom: 10px;
+}
+
+#chat-messages {
+  flex: 3; /* Esto hará que #chat-messages tome 3/4 del espacio disponible */
+  overflow-y: auto; /* Esto permitirá el desplazamiento si los mensajes del chat son muy largos */
+}
+
 #input.dark {
   background-color: #383838;
   color: #fdfcfc;

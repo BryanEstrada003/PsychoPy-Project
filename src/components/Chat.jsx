@@ -6,6 +6,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 function Chat({ darkMode }) {
   const [nameProject, SI_nameProject] = useState('');
+  const [duration, SI_duration] = useState('');
   const [description, SI_description] = useState('');
   const [objective, SI_objective] = useState('');
   const [requirements, SI_requirements] = useState('');
@@ -14,12 +15,15 @@ function Chat({ darkMode }) {
   const [timeZone, SI_timeZone] = useState('');
   const [output, setOutput] = useState('');
   const allOptions = ['Matutino (9:00 - 12:00)', 'Vespertino (12:00 - 18:00)', 'Nocturno (17:00 - 22:00)']; // Agrega todas tus opciones aquí
+  const options = allOptions.map(option => ({ value: option, label: option }));
 
   const HIC_nameProject = (e) => {
     SI_nameProject(e.target.value);
   };
 
-  const options = allOptions.map(option => ({ value: option, label: option }));
+  const HIC_duration = (e) => {
+    SI_duration(e.target.value);
+  };
 
   const handleChange = (value) => {
     HIC_availableHours({ target: { value: value ? value.map(option => option.value) : [] } });
@@ -91,6 +95,11 @@ function Chat({ darkMode }) {
       <div className="input-container">
         <p>Nombre del proyecto</p>
         <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={nameProject} placeholder="Enter your prompt here..." onChange={HIC_nameProject} />
+      </div>
+
+      <div className="input-container">
+        <p>Duración</p>
+        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={duration} placeholder="Enter your prompt here..." onChange={HIC_duration} />
       </div>
 
       <div className="input-container">
