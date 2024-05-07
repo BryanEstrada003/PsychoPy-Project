@@ -2,15 +2,15 @@ import Chat from './components/Chat.jsx'
 import React, { useState } from 'react';
 import './App.css';
 import iconPage from './assets/icon-page.png';
+import iconPageDark from './assets/icon-page - dark.png'; // Asegúrate de reemplazar './assets/icon-page-dark.png' con la ruta a tu archivo de imagen de icono oscuro
 import downloadImg from './assets/download.png';
 import downloadDarkImg from './assets/download - dark.png';
-import iconPageDark from './assets/icon-page - dark.png'; // Asegúrate de reemplazar './assets/icon-page-dark.png' con la ruta a tu archivo de imagen de icono oscuro
-import iconUploadFile from './assets/file.png';
 import nightModeIcon from './assets/night-mode.png';
 import menuLight from './assets/menu-icon-light.png';
 import menuDark from './assets/menu-icon-dark.png';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import './index.css';
+import FileUpload from './components/FileUpload.jsx';
 
 function App() {
   // light dark mode
@@ -67,14 +67,7 @@ function App() {
           </button>
         </div>
         <div id='chat-messages'>
-          <div className="file-upload">
-            <button className={`transparent-button ${darkMode ? 'dark-mode' : ''}`}>
-              <img className={`large-icon ${darkMode ? 'dark' : ''}`} src={iconUploadFile} alt="upload" />
-            </button>
-            <h3>Click box to upload</h3>
-            <p>Maximun file size 10mb</p>
-            <input type="file" />
-          </div>
+          <FileUpload darkMode={darkMode} />
         </div>
       </div>
     </div>
