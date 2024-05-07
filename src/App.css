@@ -140,13 +140,12 @@ button img {
   color: #e6e6e6;
 }
 
-.dark h1, .dark p {
+.dark h1,.dark h3, .dark p {
   color: #fff;
 }
 
 .current-chat {
   width: 450px;
-  margin: auto;
   padding: 2rem;
   background: #ffffff;
   border-radius: 25px;
@@ -156,15 +155,16 @@ button img {
 .file-upload {
   text-align: center;
   border: 3px dashed rgb(210, 227, 244);
-  padding: 1.5rem;
   position: relative;
   cursor: pointer;
 }
+
 .file-upload p {
+  margin-top: 0;
   font-size: 0.87rem;
-  margin-top: 10px;
   color: #bbcada;
 }
+
 .file-upload input {
   display: block;
   height: 100%;
@@ -187,3 +187,29 @@ button img {
   width: 100px;  /* Cambia esto al tamaño que desees */
   height: auto;  /* Esto mantendrá la proporción de la imagen */
 }
+
+.dark-mode .file-upload {
+  background-color: transparent; /* Esto hará que el fondo sea transparente */
+  color: #fff;
+}
+
+.dark-mode .transparent-button {
+  color: #fff;
+}
+
+.dark-mode .large-icon {
+  filter: invert(1); /* Esto invertirá los colores de la imagen */
+}
+
+#download-history button {
+  border: none; /* Esto eliminará el borde del botón */
+  background: none; /* Esto eliminará el fondo del botón */
+  padding: 0; /* Esto eliminará el relleno del botón */
+  width: 50px; /* Esto establecerá el ancho del botón */
+  height: 50px; /* Esto establecerá la altura del botón */
+}
+
+#download-history button:hover {
+  background-color: #b1b1b1; /* Esto cambiará el color de fondo del botón a gris claro cuando el cursor pase por encima */
+}
+

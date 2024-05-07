@@ -109,6 +109,7 @@ button:focus-visible {
 }
 
 #chat-messages {
+  max-height: 1000px;
   flex: 3; /* Esto hará que #chat-messages tome 3/4 del espacio disponible */
   overflow-y: auto; /* Esto permitirá el desplazamiento si los mensajes del chat son muy largos */
 }
