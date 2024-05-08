@@ -87,8 +87,30 @@ function Chat({ darkMode, onButtonClick }) {
   };
 
   const handleSubmit = async () => {
+    // Verifica si alguna de las variables es nula
+    // Inicia el temporizador
+    let count = 0;
+    const timer = setInterval(() => {
+      count++;
+      let dots = '';
+      for (let i = 0; i < count % 4; i++) {
+        dots += '.';
+      }
+      onButtonClick(dots);
+    }, 1000);
+
+    // Espera 4 segundos
+    await new Promise(resolve => setTimeout(resolve, 4000));
+
+    // Detiene el temporizador
+    clearInterval(timer);
+
     // Aquí invocarás la API de generación de texto
     //debe retornar un html que es el resultado de la consulta
+    if (!nameProject || !description || !scope || !objective || !requirements || !profile || !availableHours || !country) {
+      onButtonClick('Por favor, completa todos los campos.');
+      return;
+    }
 
     // Llama a onButtonClick con el contenido que quieres mostrar
     onButtonClick(nameProject + ' ' + duration + ' ' + description + ' ' + scope + ' ' + objective + ' ' + requirements + ' ' + profile + ' ' + availableHours + ' ' + country);
