@@ -17,20 +17,10 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  //const apiKey
-  //const genAI
-  const apiKey = import.meta.env.VITE_API_KEY;
-
-  const genAI = new GoogleGenerativeAI(apiKey);
-
-  const model = genAI.getGenerativeModel({ model: "gemini-1.0-pro" })
-
-  //
   const [outputText, setOutputText] = useState('');
 
 
-  //console.log("apiKey", apiKey) //imprime el tezto del apikey en la consola // solo es para verificar
-
+  
   return (
     <div className={`container ${darkMode ? 'dark' : ''}`}>
       <div id="input" className={`${darkMode ? 'dark' : ''}`}>

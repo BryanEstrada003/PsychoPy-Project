@@ -94,48 +94,49 @@ function Chat({ darkMode }) {
   return (
     <div>
       <div className="input-container">
-        <p>Nombre del proyecto</p>
-        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={nameProject} placeholder="Enter your prompt here..." onChange={HIC_nameProject} />
+        <p>*Nombre del proyecto</p>
+        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={nameProject} placeholder="Ingresa un título breve y descriptivo..." onChange={HIC_nameProject} required />
       </div>
 
       <div className="input-container">
         <p>Duración</p>
-        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={duration} placeholder="Enter your prompt here..." onChange={HIC_duration} />
+        <input type="text" className={darkMode ? 'input-short dark-mode' : 'input-short'} value={duration} placeholder="Indica el tiempo estimado..." onChange={HIC_duration} />
       </div>
 
       <div className="input-container">
-        <p>Descripción</p>
-        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={description} placeholder="Enter your prompt here..." onChange={HIC_description} />
+        <p>*Descripción</p>
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={description} placeholder="Proporciona una breve explicación detallada del proyecto..." onChange={HIC_description} required />
       </div>
 
       <div className="input-container">
-        <p>Alcance</p>
-        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={scope} placeholder="Enter your prompt here..." onChange={HIC_scope} />
+        <p>*Alcance</p>
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={scope} placeholder="Detalle de las funciones y características principales..." onChange={HIC_scope} required />
       </div>
 
       <div className="input-container">
-        <p>Objetivo</p>
-        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={objective} placeholder="Enter your prompt here..." onChange={HIC_objective} />
+        <p>*Objetivo</p>
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={objective} placeholder="Meta especifica que se espera lograr..." onChange={HIC_objective} required />
       </div>
 
       <div className="input-container">
-        <p>Requisitos/Conocimientos</p>
-        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={requirements} placeholder="Enter your prompt here..." onChange={HIC_requirements} />
+        <p>*Requisitos/Conocimientos</p>
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={requirements} placeholder="Habilidades técnicas y conocimientos necesarios..." onChange={HIC_requirements} required />
       </div>
 
       <div className="input-container">
-        <p>Perfil requerido</p>
-        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={profile} placeholder="Enter your prompt here..." onChange={HIC_profile} />
+        <p>*Perfil requerido</p>
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={profile} placeholder="Descripción del tipo de experiencia y habilidades profesionales que se busca..." onChange={HIC_profile} required />
       </div>
 
       <div className="input-container" style={{ marginBottom: '50px' }}>
-        <p>Horario disponible</p>
+        <p>*Horario disponible</p>
         <Select
           className={darkMode ? 'input-short dark-mode' : 'input-short'}
           options={options}
           isMulti
           onChange={handleChange}
           value={options.filter(option => availableHours.includes(option.value))}
+          placeholder="Seleccionar..."
           styles={{
             ...customStyles,
             control: (provided) => ({
@@ -161,11 +162,12 @@ function Chat({ darkMode }) {
             }),
           }}
           menuPlacement='auto'
+          required
         />
       </div>
 
       <div className="input-container" style={{ marginBottom: '50px' }}>
-        <p>País</p>
+        <p>*País</p>
         <Select
           className={darkMode ? 'input-short dark-mode' : 'input-short'}
           value={countryOptions.find(option => option.value === country)}
