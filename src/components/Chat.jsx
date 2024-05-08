@@ -8,7 +8,7 @@ import moment from '../../node_modules/moment';
 countries.registerLocale(spanish);
 const countryOptions = Object.entries(countries.getNames('es')).map(([value, label]) => ({ value, label }));
 
-function Chat({ darkMode }) {
+function Chat({ darkMode, onButtonClick }) {
   const [nameProject, SI_nameProject] = useState('');
   const [duration, SI_duration] = useState('');
   const [description, SI_description] = useState('');
@@ -89,6 +89,9 @@ function Chat({ darkMode }) {
   const handleSubmit = async () => {
     // Aquí invocarás la API de generación de texto
     //debe retornar un html que es el resultado de la consulta
+
+    // Llama a onButtonClick con el contenido que quieres mostrar
+    onButtonClick(nameProject + ' ' + duration + ' ' + description + ' ' + scope + ' ' + objective + ' ' + requirements + ' ' + profile + ' ' + availableHours + ' ' + country);
   };
 
   return (
@@ -171,8 +174,41 @@ function Chat({ darkMode }) {
         <Select
           className={darkMode ? 'input-short dark-mode' : 'input-short'}
           value={countryOptions.find(option => option.value === country)}
+          placeholder="Selecciona el país..."
           onChange={option => SI_country(option.value)}
           options={countryOptions}
+          styles={{
+            control: (provided) => ({
+              ...provided,
+              maxHeight: '50px',
+              background: darkMode ? '#727272' : '#fff',
+              color: darkMode ? '#fff' : '#333'
+            }),
+            valueContainer: (provided) => ({
+              ...provided,
+              maxHeight: '40px',
+              overflow: 'auto',
+              color: darkMode ? '#fff' : '#333'
+            }),
+            option: (provided) => ({
+              ...provided,
+              color: darkMode ? '#fff' : '#333',
+              background: darkMode ? '#333' : '#fff'
+            }),
+            menu: (provided) => ({
+              ...provided,
+              background: darkMode ? '#333' : '#fff',
+            }),
+            singleValue: (provided) => ({
+              ...provided,
+              color: darkMode ? '#fff' : '#333',
+            }),
+            input: (provided) => ({
+              ...provided,
+              color: darkMode ? '#fff' : '#333', // color del texto mientras escribes
+            }),
+          }}
+          menuPlacement='auto'
         />
       </div>
 
