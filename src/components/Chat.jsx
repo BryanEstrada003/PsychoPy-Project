@@ -1,18 +1,23 @@
 import React, { useState } from 'react';
 import './Chat.css';
 import Select from 'react-select';
-import moment from 'moment-timezone';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import countries from 'i18n-iso-countries';
+import spanish from 'i18n-iso-countries/langs/es.json';
+import moment from '../../node_modules/moment';
+
+countries.registerLocale(spanish);
+const countryOptions = Object.entries(countries.getNames('es')).map(([value, label]) => ({ value, label }));
 
 function Chat({ darkMode }) {
   const [nameProject, SI_nameProject] = useState('');
   const [duration, SI_duration] = useState('');
   const [description, SI_description] = useState('');
+  const [scope, SI_scope] = useState('');
   const [objective, SI_objective] = useState('');
   const [requirements, SI_requirements] = useState('');
   const [profile, SI_profile] = useState('');
   const [availableHours, SI_availableHours] = useState('');
-  const [timeZone, SI_timeZone] = useState('');
+  const [country, SI_country] = useState('');
   const [output, setOutput] = useState('');
   const allOptions = ['Matutino (9:00 - 12:00)', 'Vespertino (12:00 - 18:00)', 'Nocturno (17:00 - 22:00)']; // Agrega todas tus opciones aquí
   const options = allOptions.map(option => ({ value: option, label: option }));
@@ -57,6 +62,10 @@ function Chat({ darkMode }) {
     }
   };
 
+  const HIC_scope = (e) => {
+    SI_scope(e.target.value);
+  };
+
   const HIC_objective = (e) => {
     SI_objective(e.target.value);
   };
@@ -69,20 +78,12 @@ function Chat({ darkMode }) {
     SI_profile(e.target.value);
   };
 
-  const timeZoneOptions = moment.tz.names().map(tz => {
-    return { value: tz, label: tz }
-  });
-
   const HIC_availableHours = (e) => {
     if (e.target.value === 'all') {
       SI_availableHours(allOptions);
     } else {
       SI_availableHours(e.target.value);
     }
-  };
-
-  const HIC_timeZone = (e) => {
-    SI_timeZone(e.target.value);
   };
 
   const handleSubmit = async () => {
@@ -105,6 +106,11 @@ function Chat({ darkMode }) {
       <div className="input-container">
         <p>Descripción</p>
         <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={description} placeholder="Enter your prompt here..." onChange={HIC_description} />
+      </div>
+
+      <div className="input-container">
+        <p>Alcance</p>
+        <textarea type="text" className={darkMode ? 'input-paragraph dark-mode' : 'input-paragraph'} value={scope} placeholder="Enter your prompt here..." onChange={HIC_scope} />
       </div>
 
       <div className="input-container">
@@ -159,13 +165,12 @@ function Chat({ darkMode }) {
       </div>
 
       <div className="input-container" style={{ marginBottom: '50px' }}>
-        <p>Zona Horaria</p>
+        <p>País</p>
         <Select
           className={darkMode ? 'input-short dark-mode' : 'input-short'}
-          value={timeZoneOptions.find(option => option.value === timeZone)}
-          onChange={option => HIC_timeZone({ target: { value: option.value } })}
-          options={timeZoneOptions}
-          styles={customStyles}
+          value={countryOptions.find(option => option.value === country)}
+          onChange={option => SI_country(option.value)}
+          options={countryOptions}
         />
       </div>
 
