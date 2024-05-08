@@ -92,15 +92,15 @@ function Chat({ darkMode, onButtonClick }) {
     let count = 0;
     const timer = setInterval(() => {
       count++;
-      let dots = '';
-      for (let i = 0; i < count % 4; i++) {
+      let dots = '.';
+      for (let i = 0; i < count % 3; i++) {
         dots += '.';
       }
       onButtonClick(dots);
-    }, 1000);
+    }, 500);
 
     // Espera 4 segundos
-    await new Promise(resolve => setTimeout(resolve, 4000));
+    await new Promise(resolve => setTimeout(resolve, 5000));
 
     // Detiene el temporizador
     clearInterval(timer);
