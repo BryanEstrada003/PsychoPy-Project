@@ -110,10 +110,10 @@ function Chat({ darkMode, onButtonClick }) {
     if (!nameProject || !description || !scope || !objective || !requirements || !profile || !availableHours || !country) {
       onButtonClick('Por favor, completa todos los campos.');
       return;
+    } else {
+      // Llama a onButtonClick con el contenido que quieres mostrar
+      onButtonClick(nameProject + ' ' + duration + ' ' + description + ' ' + scope + ' ' + objective + ' ' + requirements + ' ' + profile + ' ' + availableHours + ' ' + country);
     }
-
-    // Llama a onButtonClick con el contenido que quieres mostrar
-    onButtonClick(nameProject + ' ' + duration + ' ' + description + ' ' + scope + ' ' + objective + ' ' + requirements + ' ' + profile + ' ' + availableHours + ' ' + country);
   };
 
   return (
