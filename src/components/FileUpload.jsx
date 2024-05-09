@@ -1,8 +1,5 @@
 import React, { useRef,useState } from 'react';
 import { useForm } from "react-hook-form";
-import axios from 'axios';
-import fs from 'fs';
-import path from 'path';
 import '../index.css';
 import '../App.css';
 import iconUploadFile from '../assets/file.png';
