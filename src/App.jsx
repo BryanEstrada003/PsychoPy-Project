@@ -11,6 +11,7 @@ import menuDark from './assets/menu-icon-dark.png';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import './index.css';
 import FileUpload from './components/FileUpload.jsx';
+import { saveAs } from 'file-saver';
 
 function App() {
   // light dark mode
@@ -24,6 +25,12 @@ function App() {
 
   const [outputText, setOutputText] = useState('');
 
+  //Hanlde button presesed to download file
+  const handleDownload = () => {
+    // !!! Add your code here to download the file !!!
+    const file = new Blob([outputText], { type: 'text/plain;charset=utf-8' });
+    saveAs(file, 'output_proyecto.txt');
+  };
 
   
   return (
@@ -57,7 +64,7 @@ function App() {
       </div>
       <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
         <div id='download-history' style={{ textAlign: 'right' }} className={darkMode ? 'dark-mode' : ''}>
-          <button className={darkMode ? 'dark-mode' : ''}>
+          <button className={darkMode ? 'dark-mode' : ''} onClick={handleDownload}>
             <img src={darkMode ? downloadDarkImg : downloadImg} alt="Download" />
           </button>
         </div>

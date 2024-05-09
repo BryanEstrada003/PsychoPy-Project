@@ -11,6 +11,7 @@ Antes de usar, asegúrate de seguir estos pasos:
 7. Instalar `npm i express`
 8. Instalar `npm i cors express-fileupload`
 9. Instalar `npm install react-hook-form`
+10. Instalar `npm install file-saver`
 
 CORRER LA APP WEB
 1. Para correr el servidor, ejecuta el comando `node server2.js`.
