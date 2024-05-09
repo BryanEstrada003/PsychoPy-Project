@@ -1,4 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef,useState } from 'react';
+import { useForm } from "react-hook-form";
+import axios from 'axios';
 import fs from 'fs';
 import path from 'path';
 import '../index.css';
@@ -7,39 +9,38 @@ import iconUploadFile from '../assets/file.png';
 import iconUploadFileDark from '../assets/file - dark.png';
 
 
+
 function FileUpload(darkMode) {
-  const fileInput = useRef();
+  
+  const { register, handleSubmit } = useForm();
 
-  const handleFileUpload = event => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append("file", data.file[0]);
 
-    reader.onloadend = () => {
-      const filePath = path.join(__dirname, '../drive', file.name);
-      fs.writeFile(filePath, new Buffer.from(reader.result), err => {
-        if (err) throw err;
-        console.log('File saved successfully');
-      });
-    };
-
-    reader.readAsArrayBuffer(file);
+    const res = await fetch("http://localhost:5000/upload-file", {
+      method: "POST",
+      body: formData,
+    }).then((res) => res.json());
+    alert(JSON.stringify(`${res.message}, status: ${res.status}`));
   };
 
+
+  
   return (
 
-    <div className="file-upload">
-      <button className={`transparent-button ${darkMode ? 'dark-mode' : ''}`}>
-        <img
-          className={`large-icon ${darkMode ? 'dark' : ''}`}
-          src={darkMode ? iconUploadFileDark : iconUploadFile}
-          alt="upload"
-        />
-      </button>
+    <div >
+      
       <h3>Click box to upload</h3>
       <p>Maximun file size 10mb</p>
-      <input type="file" onChange={handleFileUpload} ref={fileInput} />
-    </div>
+      <div>
+        <input type="file" {...register("file")} />
 
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input type="submit" />
+        </form>
+      </div>
+    </div>
 
   );
 }
