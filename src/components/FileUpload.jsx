@@ -1,4 +1,4 @@
-import React, { useRef,useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import '../index.css';
 import '../App.css';
@@ -8,7 +8,7 @@ import iconUploadFileDark from '../assets/file - dark.png';
 
 
 function FileUpload(darkMode) {
-  
+
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
@@ -23,20 +23,22 @@ function FileUpload(darkMode) {
   };
 
 
-  
+
   return (
 
     <div >
-      
-      <h3>Click box to upload</h3>
-      <p>Maximun file size 10mb</p>
-      <div>
-        <input type="file" {...register("file")} />
+      <center>
+        <h3>Click box to upload</h3>
+        <p>Maximun file size 10mb</p>
+        <div>
+          <input type="file" {...register("file")} />
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input type="submit" />
-        </form>
-      </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input type="submit" />
+          </form>
+        </div>
+      </center>
+
     </div>
 
   );
