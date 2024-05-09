@@ -12,7 +12,10 @@ Antes de usar, asegúrate de seguir estos pasos:
 8. Instalar `npm i cors express-fileupload`
 9. Instalar `npm install react-hook-form`
 10. Instalar `npm install file-saver`
+11. Instalar `npm install papaparse`
 
 CORRER LA APP WEB
 1. Para correr el servidor, ejecuta el comando `node server2.js`.
 2. Para correr el proyecto, ejecuta el comando `npm run dev`.
+
+**NOTA: deben de ejecutarse al mismo tiempo**
