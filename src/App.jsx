@@ -28,7 +28,7 @@ function App() {
   //Hanlde button presesed to download file
   const handleDownload = () => {
     // !!! Add your code here to download the file !!!
-    const file = new Blob([outputText], { type: 'text/plain;charset=utf-8' });
+    const file = new Blob(['hola chicos'], { type: 'text/plain;charset=utf-8' });
     saveAs(file, 'output_proyecto.txt');
   };
 
