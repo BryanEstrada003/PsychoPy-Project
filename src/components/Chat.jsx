@@ -92,11 +92,26 @@ function Chat({ darkMode, onButtonClick }) {
   };
 
   const handleSubmit = async () => {
+    // Verifica si alguna de las variables es nula
+    // Inicia el temporizador
+    let count = 0;
+    const timer = setInterval(() => {
+      count++;
+      let dots = '.';
+      for (let i = 0; i < count % 3; i++) {
+        dots += '.';
+      }
+      onButtonClick(dots);
+    }, 500);
+
+    // Espera 4 segundos
+    await new Promise(resolve => setTimeout(resolve, 5000));
+
+    // Detiene el temporizador
+    clearInterval(timer);
+
     // Aquí invocarás la API de generación de texto
     //debe retornar un html que es el resultado de la consulta
-
-        // node --version # Should be >= 18
-    // npm install @google/generative-ai
 
     const MODEL_NAME = "gemini-1.0-pro";
     const API_KEY = "AIzaSyDFYx1qgkKeBZzFhFs8SiZBJzezavMXw00";
@@ -178,8 +193,14 @@ function Chat({ darkMode, onButtonClick }) {
       });
 
       const response = result.response;
-      // Llama a onButtonClick con el contenido que quieres mostrar
-      onButtonClick(response.text())
+
+      if (!nameProject || !description || !scope || !objective || !requirements || !profile || !availableHours || !country) {
+        onButtonClick('Por favor, completa todos los campos.');
+        return;
+      } else {
+        // Llama a onButtonClick con el contenido que quieres mostrar
+        onButtonClick(response.text())
+      }
     }
 
     run();
