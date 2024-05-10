@@ -18,7 +18,7 @@ countries.registerLocale(spanish);
 let countryOptions = Object.entries(countries.getNames('es')).map(([value, label]) => ({ value, label }));
 countryOptions = [{ value: '', label: 'Selecciona el país...' }, ...countryOptions];
 
-function Chat({ darkMode, onButtonClick }) {
+function Chat({ darkMode, onButtonClick, addQueryToHistory }) {
   const [nameProject, SI_nameProject] = useState('');
   const [duration, SI_duration] = useState('');
   const [description, SI_description] = useState('');
@@ -31,6 +31,7 @@ function Chat({ darkMode, onButtonClick }) {
   const [output, setOutput] = useState('');
   const allOptions = ['Matutino (9:00 - 12:00)', 'Vespertino (12:00 - 18:00)', 'Nocturno (17:00 - 22:00)']; // Agrega todas tus opciones aquí
   const options = allOptions.map(option => ({ value: option, label: option }));
+  const [detectedName, setDetectedName] = useState(null);
 
   const HIC_nameProject = (e) => {
     SI_nameProject(e.target.value);
@@ -274,11 +275,13 @@ function Chat({ darkMode, onButtonClick }) {
 
         const response = result.response;
 
-        if (!nameProject || !description || !scope || !objective || !requirements || !profile || !availableHours || !country) {
+        if (!nameProject || !description || !objective || !requirements || !profile || !availableHours || !country) {
           onButtonClick('Por favor, completa todos los campos.');
           return;
         } else {
           // Llama a onButtonClick con el contenido que quieres mostrar
+          // Agrega la consulta y la respuesta al historial
+          addQueryToHistory(nameProject, response.text());
           onButtonClick(response.text());
         }
       }

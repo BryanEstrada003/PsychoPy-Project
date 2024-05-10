@@ -12,24 +12,32 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import './index.css';
 import FileUpload from './components/FileUpload.jsx';
 import { saveAs } from 'file-saver';
+import Papa from 'papaparse';
 
 function App() {
   // light dark mode
   const [darkMode, setDarkMode] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [boxContent, setBoxContent] = useState(null);
+  const [history, setHistory] = useState([]);
+
 
   const handleButtonClick = (content) => {
     setBoxContent(content);
+  };
+
+  // Función para agregar una consulta al historial
+  const addQueryToHistory = (projectName, response) => {
+    setHistory(prevHistory => [...prevHistory, { projectName, response }]);
   };
 
   const [outputText, setOutputText] = useState('');
 
   //Hanlde button presesed to download file
   const handleDownload = () => {
-    // !!! Add your code here to download the file !!!
-    const file = new Blob(['hola chicos'], { type: 'text/plain;charset=utf-8' });
-    saveAs(file, 'output_proyecto.txt');
+    const csv = Papa.unparse(history);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    saveAs(blob, 'historial.csv');
   };
 
   
@@ -60,7 +68,7 @@ function App() {
             </div>
           </div>
         </div>
-        <Chat darkMode={darkMode} onButtonClick={handleButtonClick} />
+        <Chat darkMode={darkMode} onButtonClick={handleButtonClick} addQueryToHistory={addQueryToHistory} />
       </div>
       <div id="current-chat" className={`${darkMode ? 'dark' : ''}`}>
         <div id='download-history' style={{ textAlign: 'right' }} className={darkMode ? 'dark-mode' : ''}>
