@@ -13,12 +13,14 @@ import './index.css';
 import FileUpload from './components/FileUpload.jsx';
 import { saveAs } from 'file-saver';
 import Papa from 'papaparse';
+import ReactMarkdown from 'react-markdown';
+
 
 function App() {
   // light dark mode
   const [darkMode, setDarkMode] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [boxContent, setBoxContent] = useState(null);
+  const [boxContent, setBoxContent] = useState('');
   const [history, setHistory] = useState([]);
 
 
@@ -27,8 +29,8 @@ function App() {
   };
 
   // Función para agregar una consulta al historial
-  const addQueryToHistory = (projectName, response) => {
-    setHistory(prevHistory => [...prevHistory, { projectName, response }]);
+  const addQueryToHistory = (projectName, inputProject,response) => {
+    setHistory(prevHistory => [...prevHistory, { projectName, inputProject,response }]);
   };
 
   const [outputText, setOutputText] = useState('');
@@ -40,7 +42,7 @@ function App() {
     saveAs(blob, 'historial.csv');
   };
 
-  
+
   return (
     <div className={`container ${darkMode ? 'dark' : ''}`}>
       <div id="input" className={`${darkMode ? 'dark' : ''}`}>
@@ -85,7 +87,9 @@ function App() {
               color: darkMode ? '#f5f5f5' : '#333', // Cambia el color del texto dependiendo del modo oscuro
               margin: '10px 0', // Agrega un margen superior e inferior
             }}>
-              {boxContent}
+              <ReactMarkdown>
+                {boxContent}
+              </ReactMarkdown>
             </div>
           }
           <FileUpload darkMode={darkMode} />

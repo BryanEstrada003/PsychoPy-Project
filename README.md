@@ -13,6 +13,7 @@ Antes de usar, asegúrate de seguir estos pasos:
 9. Instalar `npm install react-hook-form`
 10. Instalar `npm install file-saver`
 11. Instalar `npm install papaparse`
+12. Instalar `npm install react-markdown`
 
 CORRER LA APP WEB
 1. Para correr el servidor, ejecuta el comando `node server2.js`.
