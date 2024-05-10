@@ -8,12 +8,16 @@ import downloadDarkImg from './assets/download - dark.png';
 import nightModeIcon from './assets/night-mode.png';
 import menuLight from './assets/menu-icon-light.png';
 import menuDark from './assets/menu-icon-dark.png';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 import './index.css';
 import FileUpload from './components/FileUpload.jsx';
 import { saveAs } from 'file-saver';
 import Papa from 'papaparse';
 import ReactMarkdown from 'react-markdown';
+import userImg from './assets/user.png';
+import userDarkImg from './assets/user - dark.png';
+import ReactModal from 'react-modal';
+import fs from 'fs';
+ReactModal.setAppElement('#root');
 
 
 function App() {
@@ -22,15 +26,58 @@ function App() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [boxContent, setBoxContent] = useState('');
   const [history, setHistory] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [newStaff, setNewStaff] = useState({
+    Nombre: '',
+    Experiencia: '',
+    Años: '',
+    Idiomas: '',
+    Zona: '',
+    Horas: '',
+    Certificaciones: '',
+    Skills: '',
+    Disponible: 'True',
+  });
 
+  const handleOpenModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const handleInputChange = (event) => {
+    setNewStaff({
+      ...newStaff,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const addStaffToCSV = (staff) => {
+    const csv = Papa.unparse([staff], { header: true });
+    fs.appendFile('..\\uploads\\db_staff.csv', csv, (err) => {
+      if (err) throw err;
+      console.log('Staff added to CSV!');
+    });
+  };
+
+  const handleCreate = () => {
+    // Asegúrate de que newStaff contiene los datos correctos
+    console.log(newStaff);
+
+    // Llamada a la función que agrega el staff al CSV
+    addStaffToCSV(newStaff);
+    handleOpenModal();
+  };
 
   const handleButtonClick = (content) => {
     setBoxContent(content);
   };
 
   // Función para agregar una consulta al historial
-  const addQueryToHistory = (projectName, inputProject,response) => {
-    setHistory(prevHistory => [...prevHistory, { projectName, inputProject,response }]);
+  const addQueryToHistory = (projectName, inputProject, response) => {
+    setHistory(prevHistory => [...prevHistory, { projectName, inputProject, response }]);
   };
 
   const [outputText, setOutputText] = useState('');
@@ -77,6 +124,57 @@ function App() {
           <button className={darkMode ? 'dark-mode' : ''} onClick={handleDownload}>
             <img src={darkMode ? downloadDarkImg : downloadImg} alt="Download" />
           </button>
+          <button onClick={handleOpenModal}>
+            <img src={darkMode ? userDarkImg : userImg} alt="User" />
+          </button>
+
+          <ReactModal isOpen={modalIsOpen} style={{
+            content: {
+              width: '500px',
+              height: '500px',
+              margin: 'auto',
+            }
+          }}>
+            <center>
+              <h3>Crear Nuevo Staff</h3>
+            </center>
+            <form style={{ display: 'flex', flexDirection: 'column' }}>
+              <div>
+                <label>Nombre: </label>
+                <input name="Nombre" onChange={handleInputChange} />
+              </div>
+              <div>
+                <label>Experiencia en la Industria: </label>
+                <input name="Experiencia" onChange={handleInputChange} />
+              </div>
+              <div>
+                <label>Años de Experiencia: </label>
+                <input name="Años" onChange={handleInputChange} />
+              </div>
+              <div>
+                <label>Idiomas: </label>
+                <input name="Idiomas" onChange={handleInputChange} />
+              </div>
+              <div>
+                <label>Zona Horaria: </label>
+                <input name="Zona" onChange={handleInputChange} />
+              </div>
+              <div>
+                <label>Horas Disponibles: </label>
+                <input name="Horas" onChange={handleInputChange} />
+              </div>
+              <div>
+                <label>Certificaciones: </label>
+                <input name="Certificaciones" onChange={handleInputChange} />
+              </div>
+              <div>
+                <label>Developer Skills: </label>
+                <input name="Skills" onChange={handleInputChange} />
+              </div>
+              <button onClick={handleCreate}>Crear</button>
+              <button onClick={handleCloseModal}>Cancelar</button>
+            </form>
+          </ReactModal>
         </div>
         <div id='chat-messages'>
           {boxContent &&
