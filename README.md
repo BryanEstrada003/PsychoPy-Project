@@ -14,6 +14,7 @@ Antes de usar, asegúrate de seguir estos pasos:
 10. Instalar `npm install file-saver`
 11. Instalar `npm install papaparse`
 12. Instalar `npm install react-markdown`
+13. Instalar `npm install react-modal`
 
 CORRER LA APP WEB
 1. Para correr el servidor, ejecuta el comando `node server2.js`.

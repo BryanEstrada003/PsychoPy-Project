@@ -272,7 +272,6 @@ function Chat({ darkMode, onButtonClick, addQueryToHistory }) {
           safetySettings,
         });
 
-
         const response = result.response;
 
         if (!nameProject || !description || !objective || !requirements || !profile || !availableHours || !country) {
@@ -285,7 +284,6 @@ function Chat({ darkMode, onButtonClick, addQueryToHistory }) {
           addQueryToHistory(nameProject, inputProject,response.text());
           onButtonClick(response.text());
         }
-
       }
 
 

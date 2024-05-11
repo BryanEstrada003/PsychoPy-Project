@@ -124,57 +124,6 @@ function App() {
           <button className={darkMode ? 'dark-mode' : ''} onClick={handleDownload}>
             <img src={darkMode ? downloadDarkImg : downloadImg} alt="Download" />
           </button>
-          <button onClick={handleOpenModal}>
-            <img src={darkMode ? userDarkImg : userImg} alt="User" />
-          </button>
-
-          <ReactModal isOpen={modalIsOpen} style={{
-            content: {
-              width: '500px',
-              height: '500px',
-              margin: 'auto',
-            }
-          }}>
-            <center>
-              <h3>Crear Nuevo Staff</h3>
-            </center>
-            <form style={{ display: 'flex', flexDirection: 'column' }}>
-              <div>
-                <label>Nombre: </label>
-                <input name="Nombre" onChange={handleInputChange} />
-              </div>
-              <div>
-                <label>Experiencia en la Industria: </label>
-                <input name="Experiencia" onChange={handleInputChange} />
-              </div>
-              <div>
-                <label>Años de Experiencia: </label>
-                <input name="Años" onChange={handleInputChange} />
-              </div>
-              <div>
-                <label>Idiomas: </label>
-                <input name="Idiomas" onChange={handleInputChange} />
-              </div>
-              <div>
-                <label>Zona Horaria: </label>
-                <input name="Zona" onChange={handleInputChange} />
-              </div>
-              <div>
-                <label>Horas Disponibles: </label>
-                <input name="Horas" onChange={handleInputChange} />
-              </div>
-              <div>
-                <label>Certificaciones: </label>
-                <input name="Certificaciones" onChange={handleInputChange} />
-              </div>
-              <div>
-                <label>Developer Skills: </label>
-                <input name="Skills" onChange={handleInputChange} />
-              </div>
-              <button onClick={handleCreate}>Crear</button>
-              <button onClick={handleCloseModal}>Cancelar</button>
-            </form>
-          </ReactModal>
         </div>
         <div id='chat-messages'>
           {boxContent &&
