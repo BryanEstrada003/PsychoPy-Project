@@ -95,7 +95,7 @@ function App() {
       <div id="input" className={`${darkMode ? 'dark' : ''}`}>
         <div className="header">
           <img src={darkMode ? iconPageDark : iconPage} alt="PsychoPy icon" style={{ width: '50px', height: '50px' }} />
-          <h1 className={darkMode ? 'dark' : ''}>PsychoPy</h1>
+          <h1 className={darkMode ? 'dark' : ''}>MavenMatch</h1>
           <div className="navbar">
             <div className="dropdown">
               <button className="dropbtn" onClick={() => setDropdownOpen(!dropdownOpen)}>
